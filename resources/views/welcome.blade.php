@@ -34,12 +34,12 @@
                             <div class="form-group">
                                 <select id="my-select" class="form-control" name="tahun">
                                     <option value="">Pilih Tahun</option>
-                                    <option value="2021" selected="">2021</option>
+                                    <option value="2021">2021</option>
                                     <option value="2022">2022</option>
                                 </select>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-6">
                             <button type="submit" class="btn btn-primary">
                                 Tampilkan
                             </button>
@@ -51,8 +51,10 @@
                                 rel="Array Transaksi" class="btn btn-secondary">
                                 Json Transaksi
                             </a>
-                            <a href="https://tes-web.landa.id/intermediate/download?path=example.php"
-                                class="btn btn-secondary">Download Example</a>
+                            <a href="https://tes-web.landa.id/intermediate/download?path=example.php" target="_blank"
+                                rel="Array Transaksi" class="btn btn-secondary">
+                                Download Example
+                            </a>
                         </div>
                     </div>
                 </form>
@@ -64,8 +66,14 @@
                             <tr class="table-dark">
                                 <th rowspan="2" style="text-align:center;vertical-align: middle;width: 250px;">Menu
                                 </th>
-                                <th colspan="12" style="text-align: center;">Periode Pada 2021
-                                </th>
+                                <?php
+                                if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+                                    // Periksa apakah tahun dipilih
+                                    if (isset($_GET['tahun']) && !empty($_GET['tahun'])) {
+                                        echo '<th colspan="12" style="text-align: center;">Periode Pada ' . $_GET['tahun'] . '</th>';
+                                    }
+                                }
+                                ?>
                                 <th rowspan="2" style="text-align:center;vertical-align: middle;width:75px">Total
                                 </th>
                             </tr>
@@ -237,47 +245,11 @@
                                                 echo "<td style='text-align: right;'><b>{$total}</b></td>";
                                             }
                                         }
+                                        $total += $total_menu;
+                                        echo "<td style='text-align: right;'><b>{$total}</b></td>";
                                     }
                                 }
                                 ?>
-                                {{-- <td><b>Total</b></td>
-                                <td style="text-align: right;">
-                                    <b>469,000</b>
-                                </td>
-                                <td style="text-align: right;">
-                                    <b>605,000</b>
-                                </td>
-                                <td style="text-align: right;">
-                                    <b>350,000</b>
-                                </td>
-                                <td style="text-align: right;">
-                                    <b>604,000</b>
-                                </td>
-                                <td style="text-align: right;">
-                                    <b>257,000</b>
-                                </td>
-                                <td style="text-align: right;">
-                                    <b>464,000</b>
-                                </td>
-                                <td style="text-align: right;">
-                                    <b>228,000</b>
-                                </td>
-                                <td style="text-align: right;">
-                                    <b>303,000</b>
-                                </td>
-                                <td style="text-align: right;">
-                                    <b>229,000</b>
-                                </td>
-                                <td style="text-align: right;">
-                                    <b>169,000</b>
-                                </td>
-                                <td style="text-align: right;">
-                                    <b>157,000</b>
-                                </td>
-                                <td style="text-align: right;">
-                                    <b>130,000</b>
-                                </td>
-                                <td style="text-align: right;"><b>3,965,000</b></td> --}}
                             </tr>
                         </tbody>
                     </table>
