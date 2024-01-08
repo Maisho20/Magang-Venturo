@@ -55,14 +55,10 @@
                                     echo '<a href="http://tes-web.landa.id/intermediate/transaksi?tahun=' .
                                         $selectedYear .
                                         '" target="_blank" rel="Array Transaksi" class="btn btn-secondary">Json Transaksi
-                                                                                    </a>';
+                                                                                                                </a>';
                                 }
                             }
                             ?>
-                            {{-- <a href="http://tes-web.landa.id/intermediate/transaksi?tahun=2021" target="_blank"
-                                rel="Array Transaksi" class="btn btn-secondary">
-                                Json Transaksi
-                            </a> --}}
                             <a href="https://tes-web.landa.id/intermediate/download?path=example.php" target="_blank"
                                 rel="Array Transaksi" class="btn btn-secondary">
                                 Download Example
